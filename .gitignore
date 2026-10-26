@@ -1,0 +1,9 @@
+node_modules/
+ui/dist/
+data/
+data-demo/
+data-test/
+.env
+gardien.config.json
+.DS_Store
+._*

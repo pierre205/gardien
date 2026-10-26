@@ -1,0 +1,32 @@
+{
+  "name": "gardien",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Agent IA de veille d'un VPS, en lecture seule : il observe, explique et propose la commande, il n'exécute jamais rien.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build:ui": "vite build --config ui/vite.config.js",
+    "demo": "npm run build:ui && npm run demo:api",
+    "demo:api": "GARDIEN_DEMO=1 GARDIEN_DATA_DIR=./data-demo node server.js",
+    "dev:ui": "vite --config ui/vite.config.js",
+    "test": "GARDIEN_DEMO=1 GARDIEN_DATA_DIR=./data-test node --test"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.150",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.0"
+  }
+}

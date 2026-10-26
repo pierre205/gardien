@@ -1,0 +1,19 @@
+{
+  "ownerName": "Alex",
+  "machineDescription": "un VPS qui héberge un hub d'agents IA, leurs API et une base Postgres",
+  "ignoredPm2": ["bot-telegram"],
+  "fail2banContainer": "fail2ban",
+  "backupTargets": [
+    {
+      "key": "postgres-app",
+      "label": "Postgres applicatif",
+      "detail": "dump nocturne 03h00",
+      "dir": "/var/backups/postgres",
+      "match": "\\.sql\\.gz$",
+      "maxAgeHours": 30
+    }
+  ],
+  "unbacked": [
+    { "key": "docker-volumes", "label": "volumes Docker", "detail": "jamais copiés" }
+  ]
+}
